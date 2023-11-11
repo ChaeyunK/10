@@ -4,8 +4,22 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-    char str[30] = "happy C programming";
-    printf("The length of \"%s\" : %i", str, strlen(str));
-    //실제로는 20개(널문자포함), but strlen은 우리 눈에 보이는 개수만 출력해줌.
-    return 0;
+   FILE* fp;
+   char str[100];
+   int i;
+
+   fp=fopen("sample.txt","w");
+   
+   for (i=0;i<3;i++)
+   {
+  printf("input a word:");
+   scanf("%s",str); //&필요없음. 자체적으로 포인터
+  fprintf(fp,"%s\n",str);
+   
 }
+   
+   fclose(fp);
+   
+   return 0;
+}
+
